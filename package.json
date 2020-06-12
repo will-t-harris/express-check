@@ -1,0 +1,41 @@
+{
+	"name": "express-check",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"watch": "nodemon ./start.js --ignore public/",
+		"start": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
+		"assets": "webpack -w --display-max-modules 0",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/will-t-harris/express-check.git"
+	},
+	"author": "Will Harris",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/will-t-harris/express-check/issues"
+	},
+	"homepage": "https://github.com/will-t-harris/express-check#readme",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"connect-mongo": "^3.2.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"express-session": "^1.17.1",
+		"express-validator": "^6.5.0",
+		"mongoose": "^5.9.18",
+		"pug": "^3.0.0"
+	},
+	"devDependencies": {
+		"babel-core": "^6.26.3",
+		"babel-loader": "^8.1.0",
+		"babel-preset-env": "^1.7.0",
+		"concurrently": "^5.2.0",
+		"nodemon": "^2.0.4",
+		"webpack": "^4.43.0",
+		"webpack-cli": "^3.3.11"
+	}
+}
