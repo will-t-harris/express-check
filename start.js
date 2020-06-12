@@ -13,6 +13,7 @@ mongoose.connection.on("error", (err) => {
 });
 
 // import all our models
+require("./models/Todo.js");
 
 // Start our app!
 const app = require("./app");
