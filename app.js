@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
 const path = require("path");
 const bodyParser = require("body-parser");
+
+const helpers = require("./helpers");
 const routes = require("./routes/index");
 
 const app = express();
@@ -20,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(expressValidator());
 
 app.use((req, res, next) => {
+	res.locals.h = helpers;
 	res.locals.currentPath = req.path;
 	next();
 });
