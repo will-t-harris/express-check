@@ -1,0 +1,14 @@
+include mixins/_sidebar
+include mixins/_header
+  
+doctype html
+html
+  head
+    title= `${title} | ${h.siteName}`
+    link(rel='stylesheet', href='/styles/global.css')
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+  body
+    +header()
+    .content
+      +sidebar()
+      block content
