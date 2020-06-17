@@ -9,7 +9,7 @@ router.route("/").get((req, res) => {
 
 router.route("/add").post((req, res) => {
 	const todoContent = req.body.todoContent;
-	const todoPriority = req.body.todoPriority;
+	const todoPriority = Number(req.body.todoPriority);
 	const todoDate = Date.parse(req.body.todoDate);
 
 	const newTodo = new Todo({
