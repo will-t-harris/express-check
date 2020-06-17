@@ -36,4 +36,17 @@ router.route("/:id").delete((req, res) => {
 		.catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
+router.route("/update/:id").post((req, res) => {
+	Todo.findById(req.params.id).then((todo) => {
+		todo.todoContent = req.body.todoContent;
+		todo.todoPriority = Number(req.body.todoPriority);
+		todo.todoDate = Date.parse(req.body.todoDate);
+
+		todo
+			.save()
+			.then(() => res.json("Todo updated"))
+			.catch((err) => res.status(400).json(`Error: ${err}`));
+	});
+});
+
 module.exports = router;
