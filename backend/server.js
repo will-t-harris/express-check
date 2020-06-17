@@ -26,6 +26,10 @@ connection.once("open", () => {
 	console.log("MongoDB database connection established");
 });
 
+const todosRouter = require("./routes/todos");
+
+app.use("/todos", todosRouter);
+
 app.listen(port, () => {
 	console.log(`Server running on port: ${port}`);
 });
