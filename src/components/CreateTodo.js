@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export const CreateTodo = () => {
 	const [todos, setTodos] = useState({
@@ -30,7 +31,13 @@ export const CreateTodo = () => {
 
 		console.log(todo);
 
-		window.location = "/";
+		axios
+			.post("http://localhost:5000/todos/add", todo)
+			.then((res) => console.log(res.data))
+			.then(() => {
+				window.location = "/";
+			})
+			.catch((err) => console.error(err));
 	};
 
 	return (
