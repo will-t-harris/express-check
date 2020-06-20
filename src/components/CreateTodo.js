@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+
+import { Sidebar } from "./Sidebar";
 
 export const CreateTodo = () => {
 	const [todos, setTodos] = useState({
@@ -42,6 +44,7 @@ export const CreateTodo = () => {
 
 	return (
 		<div>
+			<Sidebar />
 			<h3 className="text-3xl text-indigo-800">Create New Todo</h3>
 			<form onSubmit={onSubmit}>
 				<div className="mb-2 text-center">
