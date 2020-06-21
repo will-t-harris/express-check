@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import DatePicker from "react-datepicker";
 
 import { Sidebar } from "./Sidebar";
 
@@ -18,8 +19,8 @@ export const CreateTodo = () => {
 		setTodos({ ...todos, todoPriority: event.target.value });
 	};
 
-	const onChangeTodoDate = (date) => {
-		setTodos({ ...todos, date });
+	const onChangeTodoDate = (todoDate) => {
+		setTodos({ ...todos, todoDate });
 	};
 
 	const onSubmit = (event) => {
@@ -70,12 +71,7 @@ export const CreateTodo = () => {
 				</div>
 				<div className="mb-2 text-center">
 					<label>Todo Due Date: </label>
-					<input
-						className="border border-indigo-600"
-						type="date"
-						selected={todos.todoDate}
-						onChange={onChangeTodoDate}
-					/>
+					<DatePicker selected={todos.todoDate} onChange={onChangeTodoDate} />
 				</div>
 				<div className="text-center">
 					<input
