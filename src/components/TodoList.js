@@ -41,8 +41,13 @@ export const TodoList = () => {
 	return (
 		<div>
 			<Sidebar />
-			<h2 className="text-xl font-extrabold text-center py-8">Current Todos</h2>
-			<div className="flex flex-col">{listTodos()}</div>
+			<h3 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold leading-10  bg-purple-800">
+				<span role="img" aria-label="horse emoji">
+					🐴
+				</span>{" "}
+				Pony Express
+			</h3>
+			<div className="flex flex-col space-y-0">{listTodos()}</div>
 		</div>
 	);
 };

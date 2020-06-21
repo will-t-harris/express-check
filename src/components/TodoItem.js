@@ -11,7 +11,7 @@ export const TodoItem = ({
 }) => {
 	let date = moment(todoDate);
 	return (
-		<div className="pl-8 pb-8 bg-gray-700 text-white">
+		<div className="pl-8 py-8 mt-10 bg-gray-700 text-white">
 			<p className="float-left">{todoContent}</p>
 			<p className="">Priority: {todoPriority}</p>
 			<p className="">{date.format("MMM D")}</p>

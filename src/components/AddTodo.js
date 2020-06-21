@@ -46,8 +46,13 @@ export const AddTodo = () => {
 	return (
 		<div>
 			<Sidebar />
-			<h3 className="text-3xl text-indigo-800">Create New Todo</h3>
-			<form onSubmit={onSubmit}>
+			<h3 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold bg-purple-800 leading-10">
+				<span role="img" aria-label="horse emoji">
+					🐴
+				</span>{" "}
+				Add Todo
+			</h3>
+			<form className="pt-16" onSubmit={onSubmit}>
 				<div className="mb-2 text-center">
 					<label>Todo Content: </label>
 					<input
