@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 
 import { Sidebar } from "./Sidebar";
 
-export const CreateTodo = () => {
+export const AddTodo = () => {
 	const [todos, setTodos] = useState({
 		todoContent: "",
 		todoPriority: 4,

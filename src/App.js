@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { TodoList } from "./components/TodoList";
 import { EditTodo } from "./components/EditTodo";
-import { CreateTodo } from "./components/CreateTodo";
+import { AddTodo } from "./components/AddTodo";
 
 function App() {
 	return (
@@ -11,7 +11,7 @@ function App() {
 			<div>
 				<Route path="/" exact component={TodoList} />
 				<Route path="/edit/:id" component={EditTodo} />
-				<Route path="/create" component={CreateTodo} />
+				<Route path="/add" component={AddTodo} />
 			</div>
 		</Router>
 	);
