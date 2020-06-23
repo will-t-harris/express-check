@@ -46,12 +46,12 @@ export const AddTodo = () => {
 	return (
 		<div>
 			<Sidebar />
-			<h3 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold bg-purple-800 leading-10">
+			<h1 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold bg-purple-800 leading-10">
 				<span role="img" aria-label="horse emoji">
 					🐴
 				</span>{" "}
 				Add Todo
-			</h3>
+			</h1>
 			<form className="pt-16" onSubmit={onSubmit}>
 				<div className="mb-2 text-center">
 					<label>Todo Content: </label>
@@ -68,7 +68,7 @@ export const AddTodo = () => {
 					<input
 						className="border border-indigo-600"
 						type="number"
-						min={0}
+						min={1}
 						max={4}
 						value={todos.todoPriority}
 						onChange={onChangeTodoPriority}
