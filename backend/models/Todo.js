@@ -17,7 +17,7 @@ const todoSchema = new Schema(
 );
 
 function priorityLimit(value) {
-	return value >= 0 && value <= 4;
+	return value > 0 && value < 5;
 }
 
 const Todo = mongoose.model("Todo", todoSchema);
