@@ -9,23 +9,24 @@ export const TodoItem = ({
 	id,
 	deleteTodo,
 }) => {
-	let date = moment(todoDate);
+	let date = moment(todoDate).format("MMM D");
 	return (
-		<div className="pl-8 py-8 mt-10 bg-gray-700 text-white">
-			<p className="float-left">{todoContent}</p>
-			<p className="">Priority: {todoPriority}</p>
-			<p className="">{date.format("MMM D")}</p>
-			<Link className="text-green-600 font-semibold" to={`/edit/${id}`}>
-				Edit Todo
-			</Link>{" "}
-			|{" "}
-			<button
-				className="text-red-600 font-semibold"
-				onClick={() => deleteTodo(id)}
-			>
-				Delete Todo
-			</button>
-			<hr className="border border-gray-900" />
+		<div className="grid grid-cols-2 grid-rows-3 pl-8 mt-10 border-t-2 border-red-500 bg-gray-700 text-white">
+			<p className="col-start-1">{todoContent}</p>
+			<p className="col-start-1 row-start-2">{date}</p>
+			<p className="col-start-1 row-start-3">Priority: {todoPriority}</p>
+			<div className="col-start-2 row-start-1">
+				<Link className="text-green-600 font-semibold" to={`/edit/${id}`}>
+					Edit
+				</Link>{" "}
+				|{" "}
+				<button
+					className="text-red-600 font-semibold"
+					onClick={() => deleteTodo(id)}
+				>
+					Delete
+				</button>
+			</div>
 		</div>
 	);
 };
