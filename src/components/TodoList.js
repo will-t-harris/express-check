@@ -26,8 +26,8 @@ export const TodoList = () => {
 		setTodos(filteredTodos);
 	};
 
-	const listTodos = () =>
-		todos.map((todo) => (
+	const listTodos = () => {
+		return todos.map((todo) => (
 			<TodoItem
 				key={todo._id}
 				id={todo._id}
@@ -37,16 +37,17 @@ export const TodoList = () => {
 				todoDate={todo.todoDate}
 			/>
 		));
+	};
 
 	return (
 		<div>
 			<Sidebar />
-			<h3 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold leading-10  bg-purple-800">
+			<h1 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold leading-10  bg-purple-800">
 				<span role="img" aria-label="horse emoji">
 					🐴
 				</span>{" "}
 				Pony Express
-			</h3>
+			</h1>
 			<div className="flex flex-col space-y-0">{listTodos()}</div>
 		</div>
 	);

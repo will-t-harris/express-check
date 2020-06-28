@@ -51,18 +51,23 @@ export const EditTodo = (props) => {
 	};
 
 	return (
-		<div>
+		<div className="bg-purple-600">
 			<Sidebar />
-			<h3 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold leading-10 bg-purple-800">
+			<h1 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold leading-10 bg-purple-800">
 				<span role="img" aria-label="horse emoji">
 					🐴
 				</span>{" "}
 				Edit Todo
-			</h3>
-			<form className="pt-16" onSubmit={onSubmit}>
-				<div className="mb-2 text-center">
-					<label>Todo Content: </label>
-					<input
+			</h1>
+			<form
+				className="grid grid-cols-3 grid-rows-none mx-auto pt-16"
+				onSubmit={onSubmit}
+			>
+				<div className="flex col-start-2 row-start-1 mb-2 mx-auto text-center">
+					<label className="pr-8 text-white font-bold self-center w-auto">
+						Todo Content:
+					</label>
+					<textarea
 						className="border border-indigo-600"
 						type="text"
 						required
@@ -70,10 +75,12 @@ export const EditTodo = (props) => {
 						onChange={onChangeTodoContent}
 					/>
 				</div>
-				<div className="mb-2 text-center">
-					<label>Todo Priority: </label>
+				<div className="col-start-2 row-start-2 mb-2 mx-auto text-center">
+					<label className="pr-8 text-white font-bold self-center w-auto">
+						Todo Priority:{" "}
+					</label>
 					<input
-						className="border border-indigo-600"
+						className="w-16 py-2 border border-indigo-600 text-center"
 						type="number"
 						min={0}
 						max={4}
@@ -81,17 +88,18 @@ export const EditTodo = (props) => {
 						onChange={onChangeTodoPriority}
 					/>
 				</div>
-				<div className="mb-2 text-center">
-					<label>Todo Due Date: </label>
+				<div className="flex flex-col col-start-2 row-start-3 mb-2 text-center">
+					<label className="pr-8 text-white font-bold self-center w-auto">
+						Todo Due Date:{" "}
+					</label>
 
 					<DatePicker
+						className="mb-10"
 						selected={todos.todoDate ? new Date(todos.todoDate) : null}
 						onChange={onChangeTodoDate}
 					/>
-				</div>
-				<div className="text-center">
 					<input
-						className="px-4 py-2 rounded bg-indigo-200 hover:bg-indigo-400 cursor-pointer"
+						className="px-4 py-2 mx-auto rounded w-32 bg-indigo-200 hover:bg-indigo-400 cursor-pointer"
 						type="submit"
 						value="Update Todo"
 					/>
