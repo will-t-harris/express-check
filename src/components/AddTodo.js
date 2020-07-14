@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 
-import { Sidebar } from "./Sidebar";
+import { Header } from "./Header";
 
 export const AddTodo = () => {
 	const [todos, setTodos] = useState({
@@ -32,8 +32,6 @@ export const AddTodo = () => {
 			todoDate: todos.todoDate,
 		};
 
-		console.log(todo);
-
 		axios
 			.post("http://localhost:5000/todos/add", todo)
 			.then((res) => console.log(res.data))
@@ -45,13 +43,7 @@ export const AddTodo = () => {
 
 	return (
 		<div>
-			<Sidebar />
-			<h1 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold bg-purple-800 leading-10">
-				<span role="img" aria-label="horse emoji">
-					🐴
-				</span>{" "}
-				Add Todo
-			</h1>
+			<Header headerText="Add Todo" />
 			<form className="pt-16" onSubmit={onSubmit}>
 				<div className="mb-2 text-center">
 					<label>Todo Content: </label>

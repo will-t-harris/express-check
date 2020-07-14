@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 
-import { Sidebar } from "./Sidebar";
+import { Header } from "./Header";
 
 export const EditTodo = (props) => {
 	const [todos, setTodos] = useState(() => {
@@ -52,13 +52,7 @@ export const EditTodo = (props) => {
 
 	return (
 		<div className="bg-purple-600">
-			<Sidebar />
-			<h1 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold leading-10 bg-purple-800">
-				<span role="img" aria-label="horse emoji">
-					🐴
-				</span>{" "}
-				Edit Todo
-			</h1>
+			<Header headerText="Edit Todo" />
 			<form
 				className="grid grid-cols-3 grid-rows-none mx-auto pt-16"
 				onSubmit={onSubmit}
