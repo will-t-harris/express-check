@@ -5,6 +5,7 @@ import { TodoList } from "./components/TodoList";
 import { EditTodo } from "./components/EditTodo";
 import { AddTodo } from "./components/AddTodo";
 import { Login } from "./components/Login";
+import { Register } from "./components/Register";
 import { Sidebar } from "./components/Sidebar";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
 				<Route path="/edit/:id" component={EditTodo} />
 				<Route path="/add" component={AddTodo} />
 				<Route path="/login" component={Login} />
+				<Route path="/register" component={Register} />
 			</div>
 		</Router>
 	);
