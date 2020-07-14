@@ -5,10 +5,12 @@ import { TodoList } from "./components/TodoList";
 import { EditTodo } from "./components/EditTodo";
 import { AddTodo } from "./components/AddTodo";
 import { Login } from "./components/Login";
+import { Sidebar } from "./components/Sidebar";
 
 function App() {
 	return (
 		<Router>
+			<Sidebar />
 			<div>
 				<Route path="/" exact component={TodoList} />
 				<Route path="/edit/:id" component={EditTodo} />
