@@ -27,8 +27,10 @@ connection.once("open", () => {
 });
 
 const todosRouter = require("./routes/todos");
+const usersRouter = require("./routes/users");
 
 app.use("/todos", todosRouter);
+app.use("/users", usersRouter);
 
 app.listen(port, () => {
 	console.log(`Server running on port: ${port}`);
