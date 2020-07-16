@@ -1,8 +1,7 @@
 const router = require("express").Router();
-const Todo = require("../models/Todo");
 const todosController = require("../controllers/todosController");
 
-router.get("/", todosController.getTodos);
+router.get("/", todosController.getAllTodos);
 
 router.post("/add", todosController.addTodos);
 
