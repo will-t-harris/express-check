@@ -1,12 +1,8 @@
 const router = require("express").Router();
 const Todo = require("../models/Todo");
+const todosController = require("../controllers/todosController");
 
-router.route("/").get((req, res) => {
-	Todo.find()
-		.then((todos) => todos.sort((a, b) => a.todoDate - b.todoDate))
-		.then((todos) => res.json(todos))
-		.catch((err) => res.status(400).json(`Error: ${err}`));
-});
+router.get("/", todosController.getTodos);
 
 router.route("/add").post((req, res) => {
 	const todoContent = req.body.todoContent;
