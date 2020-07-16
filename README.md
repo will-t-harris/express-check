@@ -1,4 +1,4 @@
-# Todo List App
+# 🐴 Pony Express 🐴 | Todo List App
 Created to give myself more practice with Node/Express/MongoDB
 
 **Uses**
