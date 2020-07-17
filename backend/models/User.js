@@ -19,10 +19,6 @@ const userSchema = new Schema({
 		required: "Please supply a name",
 		trim: true,
 	},
-	password: {
-		type: String,
-		required: "Password is required",
-	},
 });
 
 userSchema.plugin(passportLocalMongoose, { usernameField: "email" });
