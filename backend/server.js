@@ -29,6 +29,9 @@ connection.once("open", () => {
 	console.log("MongoDB database connection established");
 });
 
+require("./models/Todo");
+require("./models/User");
+
 const todosRouter = require("./routes/todos");
 const usersRouter = require("./routes/users");
 

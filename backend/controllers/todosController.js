@@ -1,4 +1,5 @@
-const Todo = require("../models/Todo");
+const mongoose = require("mongoose");
+const Todo = mongoose.model("Todo");
 
 exports.getAllTodos = async (req, res) => {
 	Todo.find()

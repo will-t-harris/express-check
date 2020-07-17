@@ -1,4 +1,5 @@
-const User = require("../models/User");
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
 const { check, validationResult } = require("express-validator");
 
 exports.getAllUsers = (req, res) => {
@@ -44,3 +45,5 @@ exports.validateRegister = (req, res, next) => {
 	}).then((user) => res.json(user));
 	return next();
 };
+
+exports.register = async (req, res, next) => {};
