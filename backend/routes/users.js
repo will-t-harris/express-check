@@ -5,6 +5,10 @@ router.get("/", usersController.getAllUsers);
 
 // router.get("/login", usersController.loginForm);
 
-router.post("/register", usersController.validateRegister);
+router.post(
+	"/register",
+	usersController.validateRegister,
+	usersController.register
+);
 
 module.exports = router;

@@ -16,17 +16,24 @@ exports.validateRegister = (req, res, next) => {
 			gmail_remove_dots: false,
 			gmail_remove_subaddress: false,
 		});
-	check("name", "You must supply a name").notEmpty().trim().escape();
+	check("name")
+		.notEmpty()
+		.trim()
+		.escape()
+		.withMessage("You must supply a name");
 	check("password", "Password must be at least 8 characters")
 		.notEmpty()
 		.isLength({
 			min: 8,
-		});
-	check("passwordConfirm", "Confirmed password cannot be blank")
+		})
+		.withMessage("Password must be at least 8 characters");
+	check("passwordConfirm")
 		.notEmpty()
-		.isLength({ min: 8 });
+		.isLength({ min: 8 })
+		.withMessage("Confirmed password cannot be blank");
 
 	const errors = validationResult(req);
+
 	if (!errors.isEmpty()) {
 		req.flash(
 			"error",
@@ -39,11 +46,11 @@ exports.validateRegister = (req, res, next) => {
 		});
 		return;
 	}
-	User.create({
-		email: req.body.email,
-		name: req.body.name,
-	}).then((user) => res.json(user));
 	return next();
 };
 
-exports.register = async (req, res, next) => {};
+exports.register = async (req, res, next) => {
+	const user = new User({ email: req.body.email, name: req.body.name });
+	await User.register(user, req.body.password);
+	next();
+};
