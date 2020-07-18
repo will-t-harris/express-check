@@ -9,13 +9,14 @@ exports.getAllUsers = (req, res) => {
 };
 
 exports.validateRegister = (req, res, next) => {
-	check("email", "That is not a valid email")
+	check("email")
 		.notEmpty()
 		.isEmail()
 		.normalizeEmail({
 			gmail_remove_dots: false,
 			gmail_remove_subaddress: false,
-		});
+		})
+		.withMessage("That is not a valid email");
 	check("name")
 		.notEmpty()
 		.trim()
@@ -52,5 +53,5 @@ exports.validateRegister = (req, res, next) => {
 exports.register = async (req, res, next) => {
 	const user = new User({ email: req.body.email, name: req.body.name });
 	await User.register(user, req.body.password);
-	next();
+	return next();
 };
