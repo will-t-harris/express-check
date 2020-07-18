@@ -1,14 +1,16 @@
 const router = require("express").Router();
 const usersController = require("../controllers/usersController");
+const authController = require("../controllers/authController");
 
 router.get("/", usersController.getAllUsers);
 
-// router.get("/login", usersController.loginForm);
+router.post("/login", authController.login);
 
 router.post(
 	"/register",
 	usersController.validateRegister,
-	usersController.register
+	usersController.register,
+	authController.login
 );
 
 module.exports = router;
