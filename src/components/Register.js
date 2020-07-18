@@ -22,7 +22,9 @@ export const Register = (props) => {
 		};
 		axios
 			.post("http://localhost:5000/users/register", newUser)
-			.then((res) => console.log(res.data));
+			.then((res) => console.log("posted to register"))
+			.then(() => (window.location = "/"))
+			.catch((err) => console.error(`Error: ${err}`));
 	};
 
 	return (
