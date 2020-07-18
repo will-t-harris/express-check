@@ -12,8 +12,13 @@ export const Header = ({ headerText }) => {
 			</h1>
 			<HeaderButton
 				twClasses="self-center ml-auto mr-8 text-yellow-400 font-bold"
-				buttonText="LOG IN"
+				buttonText="REGISTER"
 				buttonUrl="/register"
+			/>
+			<HeaderButton
+				twClasses="self-center mr-8 text-yellow-400 font-bold"
+				buttonText="LOG IN"
+				buttonUrl="/login"
 			/>
 		</div>
 	);
