@@ -9,10 +9,13 @@ export const Login = (props) => {
 	const onSubmit = (event) => {
 		event.preventDefault();
 
-		axios.post("http://localhost:5000/users/login", {
-			email: user.email,
-			password: user.password,
-		});
+		axios
+			.post("http://localhost:5000/users/login", {
+				email: user.email,
+				password: user.password,
+			})
+			.then(() => (window.location = "/"))
+			.catch((err) => console.error(`Error in axios request: ${err}`));
 	};
 	return (
 		<>
