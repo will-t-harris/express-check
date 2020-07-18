@@ -20,6 +20,11 @@ export const Header = ({ headerText }) => {
 				buttonText="LOG IN"
 				buttonUrl="/login"
 			/>
+			<HeaderButton
+				twClasses="self-center mr-8 text-yellow-400 font-bold"
+				buttonText="LOG OUT"
+				buttonUrl="/logout"
+			/>
 		</div>
 	);
 };
