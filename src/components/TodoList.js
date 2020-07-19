@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Sidebar } from "./Sidebar";
 import { TodoItem } from "./TodoItem";
+import { Header } from "./Header";
 
 export const TodoList = () => {
 	const [todos, setTodos] = useState([]);
@@ -41,13 +41,7 @@ export const TodoList = () => {
 
 	return (
 		<div>
-			<Sidebar />
-			<h1 className="absolute w-full h-10 pl-8 text-2xl text-yellow-400 font-extrabold leading-10  bg-purple-800">
-				<span role="img" aria-label="horse emoji">
-					🐴
-				</span>{" "}
-				Pony Express
-			</h1>
+			<Header headerText="Pony Express" />
 			<div className="flex flex-col space-y-0">{listTodos()}</div>
 		</div>
 	);
