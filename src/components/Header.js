@@ -1,5 +1,7 @@
 import React from "react";
+
 import { HeaderButton } from "./HeaderButton";
+import { LogoutButton } from "./LogoutButton";
 
 export const Header = ({ headerText }) => {
 	return (
@@ -20,11 +22,7 @@ export const Header = ({ headerText }) => {
 				buttonText="LOG IN"
 				buttonUrl="/login"
 			/>
-			<HeaderButton
-				twClasses="self-center mr-8 text-yellow-400 font-bold"
-				buttonText="LOG OUT"
-				buttonUrl="/logout"
-			/>
+			<LogoutButton twClasses="self-center mr-8 text-yellow-400 font-bold" />
 		</div>
 	);
 };
