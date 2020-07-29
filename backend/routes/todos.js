@@ -4,7 +4,7 @@ const authController = require("../controllers/authController");
 
 router.get("/", todosController.getAllTodos);
 
-router.get("/add", authController.isLoggedIn, todosController.addTodos);
+router.post("/add", todosController.addTodos);
 
 router.get("/:id", todosController.getTodoById);
 
