@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const MongoStore = require("connect-mongo")(session);
 const path = require("path");
 const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const flash = require("connect-flash");
 const passport = require("passport");
