@@ -3,11 +3,13 @@ import DatePicker from "react-datepicker";
 import axios from "axios";
 
 import { Header } from "./Header";
+import { PrioritySelect } from "./PrioritySelect";
 
 export const EditTodo = (props) => {
-	const [todos, setTodos] = useState(() => {
-		return { todoContent: "", todoPriority: 4, todoDate: new Date() };
-	});
+	const [todoContent, setTodoContent] = useState("");
+	const [todoPriority, setTodoPriority] = useState(4);
+	const [todoDate, setTodoDate] = useState(new Date());
+
 	const todoId = props.match.params.id;
 
 	useEffect(() => {
@@ -15,30 +17,20 @@ export const EditTodo = (props) => {
 			.get(`http://localhost:5000/todos/${todoId}`)
 			.then((response) => {
 				console.log(response);
-				setTodos({ ...response.data });
+				setTodoContent(response.data.todoContent);
+				setTodoPriority(response.data.todoPriority);
+				setTodoDate(response.data.todoDate);
 			})
 			.catch((err) => console.error(err));
-	}, [todoId]);
-
-	const onChangeTodoContent = (event) => {
-		setTodos({ ...todos, todoContent: event.target.value });
-	};
-
-	const onChangeTodoPriority = (event) => {
-		setTodos({ ...todos, todoPriority: event.target.value });
-	};
-
-	const onChangeTodoDate = (todoDate) => {
-		setTodos({ ...todos, todoDate });
-	};
+	}, []);
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 
 		const todo = {
-			todoContent: todos.todoContent,
-			todoPriority: todos.todoPriority,
-			todoDate: todos.todoDate,
+			todoContent,
+			todoPriority,
+			todoDate,
 		};
 
 		axios
@@ -65,21 +57,14 @@ export const EditTodo = (props) => {
 						className="border border-indigo-600"
 						type="text"
 						required
-						value={todos.todoContent}
-						onChange={onChangeTodoContent}
+						value={todoContent}
+						onChange={(event) => setTodoContent(event.target.value)}
 					/>
 				</div>
 				<div className="col-start-2 row-start-2 mb-2 mx-auto text-center">
-					<label className="pr-8 text-white font-bold self-center w-auto">
-						Todo Priority:{" "}
-					</label>
-					<input
-						className="w-16 py-2 border border-indigo-600 text-center"
-						type="number"
-						min={0}
-						max={4}
-						value={todos.todoPriority}
-						onChange={onChangeTodoPriority}
+					<PrioritySelect
+						todoPriority={todoPriority}
+						setTodoPriority={setTodoPriority}
 					/>
 				</div>
 				<div className="flex flex-col col-start-2 row-start-3 mb-2 text-center">
@@ -89,8 +74,8 @@ export const EditTodo = (props) => {
 
 					<DatePicker
 						className="mb-10"
-						selected={todos.todoDate ? new Date(todos.todoDate) : null}
-						onChange={onChangeTodoDate}
+						selected={todoDate ? new Date(todoDate) : null}
+						onChange={(todoDate) => setTodoDate(todoDate)}
 					/>
 					<input
 						className="px-4 py-2 mx-auto rounded w-32 bg-indigo-200 hover:bg-indigo-400 cursor-pointer"
