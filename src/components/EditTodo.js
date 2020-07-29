@@ -22,7 +22,7 @@ export const EditTodo = (props) => {
 				setTodoDate(response.data.todoDate);
 			})
 			.catch((err) => console.error(err));
-	}, []);
+	}, [todoId]);
 
 	const onSubmit = (event) => {
 		event.preventDefault();
