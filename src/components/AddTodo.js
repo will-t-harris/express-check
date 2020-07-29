@@ -3,33 +3,20 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 
 import { Header } from "./Header";
+import { PrioritySelect } from "./PrioritySelect";
 
 export const AddTodo = () => {
-	const [todos, setTodos] = useState({
-		todoContent: "",
-		todoPriority: 4,
-		todoDate: new Date(),
-	});
-
-	const onChangeTodoContent = (event) => {
-		setTodos({ ...todos, todoContent: event.target.value });
-	};
-
-	const onChangeTodoPriority = (event) => {
-		setTodos({ ...todos, todoPriority: event.target.value });
-	};
-
-	const onChangeTodoDate = (todoDate) => {
-		setTodos({ ...todos, todoDate });
-	};
+	const [todoContent, setTodoContent] = useState("");
+	const [todoPriority, setTodoPriority] = useState(4);
+	const [todoDate, setTodoDate] = useState(new Date());
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 
 		const todo = {
-			todoContent: todos.todoContent,
-			todoPriority: todos.todoPriority,
-			todoDate: todos.todoDate,
+			todoContent,
+			todoPriority,
+			todoDate,
 		};
 
 		axios
@@ -51,24 +38,22 @@ export const AddTodo = () => {
 						className="border border-indigo-600"
 						type="text"
 						required
-						value={todos.todoContent}
-						onChange={onChangeTodoContent}
+						value={todoContent}
+						onChange={(event) => setTodoContent(event.target.value)}
 					/>
 				</div>
 				<div className="mb-2 text-center">
-					<label>Todo Priority: </label>
-					<input
-						className="border border-indigo-600"
-						type="number"
-						min={1}
-						max={4}
-						value={todos.todoPriority}
-						onChange={onChangeTodoPriority}
+					<PrioritySelect
+						todoPriority={todoPriority}
+						setTodoPriority={setTodoPriority}
 					/>
 				</div>
 				<div className="mb-2 text-center">
 					<label>Todo Due Date: </label>
-					<DatePicker selected={todos.todoDate} onChange={onChangeTodoDate} />
+					<DatePicker
+						selected={todoDate}
+						onChange={(todoDate) => setTodoDate(todoDate)}
+					/>
 				</div>
 				<div className="text-center">
 					<input
