@@ -4,15 +4,16 @@ import axios from "axios";
 import { Header } from "./Header";
 
 export const Login = (props) => {
-	const [user, setUser] = useState({ email: "", password: "" });
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 
 		axios
 			.post("http://localhost:5000/users/login", {
-				email: user.email,
-				password: user.password,
+				email,
+				password,
 			})
 			.then(() => (window.location = "/"))
 			.catch((err) => console.error(`Error in axios request: ${err}`));
@@ -32,16 +33,14 @@ export const Login = (props) => {
 					type="email"
 					name="email"
 					className="bg-purple-100"
-					onChange={(event) => setUser({ ...user, email: event.target.value })}
+					onChange={(event) => setEmail(event.target.value)}
 				/>
 				<label htmlFor="password">Password</label>
 				<input
 					type="password"
 					name="password"
 					className="bg-purple-100"
-					onChange={(event) =>
-						setUser({ ...user, password: event.target.value })
-					}
+					onChange={(event) => setPassword(event.target.value)}
 				/>
 				<input type="submit" value="Log In &#10148;" />
 			</form>

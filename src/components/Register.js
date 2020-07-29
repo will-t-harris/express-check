@@ -4,21 +4,19 @@ import axios from "axios";
 import { Header } from "./Header";
 
 export const Register = (props) => {
-	const [user, setUser] = useState({
-		email: "",
-		name: "",
-		password: "",
-		passwordConfirm: "",
-	});
+	const [email, setEmail] = useState("");
+	const [name, setName] = useState("");
+	const [password, setPassword] = useState("");
+	const [passwordConfirm, setPasswordConfirm] = useState("");
 
 	const onSubmit = (event) => {
 		event.preventDefault();
 
 		const newUser = {
-			email: user.email,
-			name: user.name,
-			password: user.password,
-			passwordConfirm: user.passwordConfirm,
+			email,
+			name,
+			password,
+			passwordConfirm,
 		};
 		axios
 			.post("http://localhost:5000/users/register", newUser)
@@ -36,14 +34,14 @@ export const Register = (props) => {
 					className="bg-purple-100"
 					type="text"
 					name="name"
-					onChange={(event) => setUser({ ...user, name: event.target.value })}
+					onChange={(event) => setName(event.target.value)}
 				/>
 				<label htmlFor="email">Email</label>
 				<input
 					className="bg-purple-100"
 					type="email"
 					name="email"
-					onChange={(event) => setUser({ ...user, email: event.target.value })}
+					onChange={(event) => setEmail(event.target.value)}
 				/>
 				<label htmlFor="password">Password</label>
 				<input
@@ -51,9 +49,7 @@ export const Register = (props) => {
 					type="password"
 					name="password"
 					minLength={8}
-					onChange={(event) =>
-						setUser({ ...user, password: event.target.value })
-					}
+					onChange={(event) => setPassword(event.target.value)}
 				/>
 				<label htmlFor="passwordConfirm">Confirm Password</label>
 				<input
@@ -61,9 +57,7 @@ export const Register = (props) => {
 					type="password"
 					name="passwordConfirm"
 					minLength={8}
-					onChange={(event) =>
-						setUser({ ...user, passwordConfirm: event.target.value })
-					}
+					onChange={(event) => setPasswordConfirm(event.target.value)}
 				/>
 				<input type="submit" value="Register &#10148;" />
 			</form>
