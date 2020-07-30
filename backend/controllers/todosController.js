@@ -3,7 +3,7 @@ const Todo = mongoose.model("Todo");
 
 exports.getAllTodos = async (req, res) => {
 	Todo.find()
-		.then((todos) => todos.sort((a, b) => a.todoDate - b.todoDate))
+		.sort({ todoDate: 1 })
 		.then((todos) => res.json(todos))
 		.catch((err) => res.status(400).json(`Error: ${err}`));
 };

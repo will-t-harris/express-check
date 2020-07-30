@@ -27,16 +27,22 @@ export const TodoList = () => {
 	};
 
 	const listTodos = () => {
-		return todos.map((todo) => (
-			<TodoItem
-				key={todo._id}
-				id={todo._id}
-				deleteTodo={deleteTodo}
-				todoContent={todo.todoContent}
-				todoPriority={todo.todoPriority}
-				todoDate={todo.todoDate}
-			/>
-		));
+		return todos
+			.sort((a, b) => {
+				if (new Date(a.todoDate).getDate() === new Date(b.todoDate).getDate()) {
+					return a.todoPriority - b.todoPriority;
+				}
+			})
+			.map((todo) => (
+				<TodoItem
+					key={todo._id}
+					id={todo._id}
+					deleteTodo={deleteTodo}
+					todoContent={todo.todoContent}
+					todoPriority={todo.todoPriority}
+					todoDate={todo.todoDate}
+				/>
+			));
 	};
 
 	return (
