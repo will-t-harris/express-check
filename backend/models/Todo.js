@@ -20,6 +20,4 @@ function priorityLimit(value) {
 	return value > 0 && value < 5;
 }
 
-const Todo = mongoose.model("Todo", todoSchema);
-
-module.exports = Todo;
+module.exports = mongoose.model("Todo", todoSchema);
