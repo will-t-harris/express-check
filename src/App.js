@@ -7,6 +7,7 @@ import { AddTodo } from "./components/AddTodo";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Sidebar } from "./components/Sidebar";
+import { Projects } from "./components/Projects";
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/add" component={AddTodo} />
 				<Route path="/login" component={Login} />
 				<Route path="/register" component={Register} />
+				<Route path="/projects" component={Projects} />
 			</div>
 		</Router>
 	);
