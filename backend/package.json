@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"watch": "nodemon ./server.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",
@@ -27,6 +27,11 @@
 		"validator": "^13.1.1"
 	},
 	"devDependencies": {
+		"jest": "^26.2.1",
+		"mongodb-memory-server": "^6.6.3",
 		"nodemon": "^2.0.4"
+	},
+	"jest": {
+		"testEnvironment": "node"
 	}
 }
