@@ -13,7 +13,7 @@ afterEach(async () => await dbHandler.clearDatabase());
 afterAll(async () => await dbHandler.closeDatabase());
 
 describe("User model", () => {
-	it("creates and saves user with correct info", async () => {
+	it("creates and saves user with valid info", async () => {
 		const validUser = new User(userData);
 		const savedUser = await validUser.save();
 
@@ -36,14 +36,13 @@ describe("User model", () => {
 		expect(savedUserWithInvalidField.nickname).toBeUndefined();
 	});
 
-	it("fails without email field", async () => {
+	it("throws validation error without email field", async () => {
 		const userWithoutEmail = new User({
 			name: "testUser",
 		});
 		let error;
 		try {
-			const savedUserWithoutEmail = await userWithoutEmail.save();
-			error = savedUserWithoutEmail;
+			error = await userWithoutEmail.save();
 		} catch (err) {
 			error = err;
 		}
@@ -52,14 +51,13 @@ describe("User model", () => {
 		expect(error.errors.email).toBeDefined();
 	});
 
-	it("fails without name field", async () => {
+	it("throws validation error without name field", async () => {
 		const userWithoutName = new User({
 			email: "test@test.com",
 		});
 		let error;
 		try {
-			const savedUserWithoutName = await userWithoutName.save();
-			error = savedUserWithoutName;
+			error = await userWithoutName.save();
 		} catch (err) {
 			error = err;
 		}
