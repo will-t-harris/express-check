@@ -11,7 +11,7 @@ export const TodoItem = ({
 }) => {
 	let date = moment(todoDate).format("MMM D");
 	return (
-		<div className="grid grid-cols-2 grid-rows-3 pl-8 mt-10 border-t-2 border-red-500 bg-gray-700 text-white">
+		<div className="grid grid-cols-2 grid-rows-3 pl-8 mt-10 border-b-2 border-gray-600 bg-gray-200 text-gray-800">
 			<p className="col-start-1">{todoContent}</p>
 			<p className="col-start-1 row-start-2">{date}</p>
 			<p className="col-start-1 row-start-3">Priority: {todoPriority}</p>
