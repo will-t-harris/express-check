@@ -10,6 +10,9 @@ export const Sidebar = () => {
 			<Link className="py-8 hover:underline" to="/add">
 				Add Todo
 			</Link>
+			<Link className="py-8 hover:underline" to="/projects">
+				Projects
+			</Link>
 		</div>
 	);
 };

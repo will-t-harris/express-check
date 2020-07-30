@@ -56,6 +56,12 @@ export const AddTodo = () => {
 						onChange={(todoDate) => setTodoDate(todoDate)}
 					/>
 				</div>
+				<div className="mb-2 text-center">
+					<label className="font-bold">Project</label>
+					<select>
+						<option>Test</option>
+					</select>
+				</div>
 				<div className="text-center">
 					<input
 						className="px-4 py-2 rounded bg-purple-600 text-white font-bold shadow hover:bg-purple-500 cursor-pointer"
