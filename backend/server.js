@@ -10,8 +10,10 @@ const passport = require("passport");
 
 require("./models/Todo");
 require("./models/User");
+require("./models/Project");
 const todosRouter = require("./routes/todos");
 const usersRouter = require("./routes/users");
+const projectsRouter = require("./routes/projects");
 require("./handlers/passport");
 
 require("dotenv").config({ path: ".env" });
@@ -66,6 +68,7 @@ connection.once("open", () => {
 
 app.use("/todos", todosRouter);
 app.use("/users", usersRouter);
+app.use("/projects", projectsRouter);
 
 app.listen(port, () => {
 	console.log(`Server running on port: ${port}`);
