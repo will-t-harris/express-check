@@ -3,9 +3,12 @@ import React from "react";
 export const PrioritySelect = ({ todoPriority, setTodoPriority }) => {
 	return (
 		<>
-			<label className="font-bold">Todo Priority: </label>
+			<label className="font-bold" htmlFor="todoPriority">
+				Todo Priority:{" "}
+			</label>
 			<select
 				className="py-1 text-center bg-purple-600 text-white font-bold w-1/4"
+				id="todoPriority"
 				value={todoPriority}
 				onChange={(event) => setTodoPriority(Number(event.target.value))}
 			>

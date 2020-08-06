@@ -33,9 +33,12 @@ export const AddTodo = () => {
 			<Header headerText="Add Todo" />
 			<form className="pt-16" onSubmit={onSubmit}>
 				<div className="mb-2 text-center">
-					<label className="font-bold">Todo Content: </label>
+					<label className="font-bold" htmlFor="todoContent">
+						Todo Content:
+					</label>
 					<textarea
 						className="border border-indigo-600 w-1/4"
+						id="todoContent"
 						type="text"
 						required
 						value={todoContent}
@@ -49,8 +52,11 @@ export const AddTodo = () => {
 					/>
 				</div>
 				<div className="mb-2 text-center">
-					<label className="font-bold">Todo Due Date: </label>
+					<label className="font-bold" htmlFor="todoDate">
+						Todo Due Date:{" "}
+					</label>
 					<DatePicker
+						id="todoDate"
 						className="bg-purple-600 text-white text-center font-bold"
 						selected={todoDate}
 						onChange={(todoDate) => setTodoDate(todoDate)}
