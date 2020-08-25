@@ -1,5 +1,8 @@
 describe("add todo form", () => {
-	it("can add and delete a todo", () => {
+	it("can add a todo", () => {
+		cy.visit("/").then(() => {
+			cy.findByTestId(/todo-list/i);
+		});
 		cy.visit("/add");
 		cy.findByLabelText(/Todo Content:/i)
 			.click()
@@ -12,9 +15,15 @@ describe("add todo form", () => {
 			.get(".react-datepicker__day--010")
 			.click();
 
-		cy.findByDisplayValue(/Add Todo/i)
-			.click()
-			.url()
-			.should("eq", "http://localhost:3000/");
+		cy.findByDisplayValue(/Add Todo/i).click();
+
+		cy.url().should("eq", "http://localhost:3000/");
+	});
+
+	it("can delete a todo", () => {
+		cy.visit("/").then(() => {
+			const todos = cy.findByTestId(/todo-list/i).children();
+			console.log(todos);
+		});
 	});
 });
