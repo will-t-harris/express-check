@@ -6,12 +6,16 @@ import { Header } from "./Header";
 
 export const TodoList = () => {
 	const [todos, setTodos] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		axios
 			.get("http://localhost:5000/todos")
 			.then((response) => {
 				setTodos(response.data);
+			})
+			.then(() => {
+				setIsLoading(false);
 			})
 			.catch((err) => console.error(err));
 	}, []);
@@ -48,7 +52,12 @@ export const TodoList = () => {
 	return (
 		<div>
 			<Header headerText="Pony Express" />
-			<div className="flex flex-col space-y-0">{listTodos()}</div>
+			{isLoading && <div className="pt-20">Loading...</div>}
+			{todos && (
+				<div className="flex flex-col space-y-0" data-testid="todo-list">
+					{listTodos()}
+				</div>
+			)}
 		</div>
 	);
 };
