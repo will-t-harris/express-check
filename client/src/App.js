@@ -18,7 +18,7 @@ function App() {
 	return (
 		<Router>
 			<DragDropContext onDragEnd={onDragEnd}>
-				{/* <Sidebar /> */}
+				<Sidebar />
 				<div>
 					<Route path="/" exact component={TodoList} />
 					<Route path="/edit/:id" component={EditTodo} />
