@@ -12,6 +12,10 @@ const todoSchema = new Schema(
 			validate: [priorityLimit, "Priority must be between 0 and 4"],
 		},
 		todoDate: { type: Date, required: true },
+		project: {
+			type: Schema.Types.ObjectId,
+			ref: "Project",
+		},
 	},
 	{ timestamps: true }
 );
