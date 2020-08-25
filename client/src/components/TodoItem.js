@@ -6,6 +6,7 @@ export const TodoItem = ({
 	todoContent,
 	todoPriority,
 	todoDate,
+	project,
 	id,
 	deleteTodo,
 }) => {
@@ -26,6 +27,9 @@ export const TodoItem = ({
 				>
 					Delete
 				</button>
+			</div>
+			<div>
+				<p>{project}</p>
 			</div>
 		</div>
 	);
